@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage>
           child: Image(
               image: AssetImage('assets/sliit.png'),
               fit: BoxFit.cover,
-              height: 36.0,
+              height: 35.0,
               width: 108.0),
         ),
 
