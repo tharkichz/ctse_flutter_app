@@ -29,6 +29,10 @@ class MainScreen extends StatelessWidget {
         backgroundColor: Colors.blue,
         elevation: 6.0,
         centerTitle: true,
+        leading: new IconButton(
+          icon: new Icon(Icons.keyboard_backspace),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         title: Padding(
           padding: const EdgeInsets.only(top: 7.0),
           child: Image(
