@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sliit_app/contacts.dart';
+import './studentServices.dart';
+import './contacts.dart';
 import 'bottom_bar.dart';
 import 'card_page.dart';
 import './club.dart';
@@ -208,10 +209,11 @@ class _MyHomePageState extends State<MyHomePage>
               leading: Icon(Icons.supervisor_account),
               title: Text('Student Services'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.of(context).push(
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new StServices()
+                    )
+                );
               },
             ),
           ],
