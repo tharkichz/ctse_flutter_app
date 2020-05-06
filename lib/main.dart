@@ -3,18 +3,18 @@ import 'package:sliit_app/contacts.dart';
 import 'bottom_bar.dart';
 import 'card_page.dart';
 import './club.dart';
-
+import 'login.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final appTitle = 'About SLIIT';
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-       title: appTitle,
+      title: appTitle,
       home: MyHomePage(title: appTitle),
     );
   }
@@ -25,7 +25,6 @@ class MyHomePage extends StatefulWidget {
 
   MyHomePage({Key key, this.title}) : super(key: key);
   @override
-
   _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -55,11 +54,13 @@ class _MyHomePageState extends State<MyHomePage>
               height: 35.0,
               width: 108.0),
         ),
-
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.notifications_none, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+            },
           ),
         ],
       ),
@@ -114,18 +115,14 @@ class _MyHomePageState extends State<MyHomePage>
               ]))
         ],
       ),
-
       drawer: Drawer(
-    
         child: ListView(
-        
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              
               //child: Text('Home',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25)),
-              child: Image.asset('assets/1.png', height: 200,  width: 100),
+              child: Image.asset('assets/1.png', height: 200, width: 100),
               decoration: BoxDecoration(
                 //color: Colors.deepPurple[900],
                 color: Colors.blueAccent,
@@ -145,11 +142,8 @@ class _MyHomePageState extends State<MyHomePage>
               leading: Icon(Icons.tag_faces),
               title: Text('Clubs and Societies'),
               onTap: () {
-                Navigator.of(context).push(
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new Club()
-                    )
-                );
+                Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => new Club()));
               },
             ),
             ListTile(
@@ -206,11 +200,8 @@ class _MyHomePageState extends State<MyHomePage>
               leading: Icon(Icons.phone),
               title: Text('Contacts'),
               onTap: () {
-                Navigator.of(context).push(
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new Contacts()
-                    )
-                );
+                Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => new Contacts()));
               },
             ),
             ListTile(
@@ -226,14 +217,14 @@ class _MyHomePageState extends State<MyHomePage>
           ],
         ),
       ),
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Color(0xFFF17532),
         child: Icon(Icons.school),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomBar(Color(0xFFF17532),Color(0xFF545D68),Color(0xFF545D68),Color(0xFF545D68)),
+      bottomNavigationBar: BottomBar(Color(0xFFF17532), Color(0xFF545D68),
+          Color(0xFF545D68), Color(0xFF545D68)),
     );
   }
 }
