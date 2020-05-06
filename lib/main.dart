@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sliit_app/contacts.dart';
 import 'bottom_bar.dart';
 import 'card_page.dart';
+import './club.dart';
 
 
 void main() => runApp(MyApp());
@@ -143,7 +145,11 @@ class _MyHomePageState extends State<MyHomePage>
               leading: Icon(Icons.tag_faces),
               title: Text('Clubs and Societies'),
               onTap: () {
-              
+                Navigator.of(context).push(
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new Club()
+                    )
+                );
               },
             ),
             ListTile(
@@ -200,10 +206,11 @@ class _MyHomePageState extends State<MyHomePage>
               leading: Icon(Icons.phone),
               title: Text('Contacts'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.of(context).push(
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new Contacts()
+                    )
+                );
               },
             ),
             ListTile(

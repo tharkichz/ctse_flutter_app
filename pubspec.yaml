@@ -57,6 +57,36 @@ flutter:
     - assets/icon_phone.png
     - assets/icon_fax.png
     - assets/icon_email.png
+    - assets/club-interactive.jpg
+    - assets/club-fbsc.jpg
+    - assets/club-fcsc.jpg
+    - assets/club-fesc.jpg
+    - assets/club-gaming.jpg
+    - assets/club-sports.jpg
+    - assets/club-aiesec.jpg
+    - assets/club-leo.jpg
+    - assets/club-art.jpg
+    - assets/nextu.jpg
+    - assets/sliit.jpg
+    - assets/sliit2.jpg
+    - assets/interFace1.png
+    - assets/interFace2.png
+    - assets/interface3.png
+    - assets/interFace4.png
+    - assets/userImage.png
+    - assets/webInterFace.png
+    - assets/interFace5.jpg
+    - assets/interFace6.jpg
+    - assets/interFace7.jpg
+    - assets/interFace8.jpg
+    - assets/interFace9.jpg
+    - assets/interFace10.jpg
+    - assets/interFace11.jpg
+    - assets/interFace12.jpg
+    - assets/interFace13.jpg
+    - assets/interFace14.jpg
+    - assets/interFace15.jpg
+    - assets/interFace16.jpg
    
 
   # An image asset can refer to one or more resolution-specific "variants", see
