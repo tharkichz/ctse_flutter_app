@@ -29,7 +29,7 @@ class _HomeState extends State<MyCourses>{
   @override
   Widget build(BuildContext context){
     return new Scaffold(
-      //backgroundColor: Color(0xFFDBF3F6),
+      backgroundColor: Colors.white,
         appBar: new AppBar(
           backgroundColor: Colors.blue,
           elevation: 6.0,
@@ -53,32 +53,60 @@ class _HomeState extends State<MyCourses>{
             ),
           ],
         ),
-        floatingActionButton: new FloatingActionButton(
-          child: new Icon(Icons.add,),
-          onPressed: ()=>Navigator.of(context).push(
-              new MaterialPageRoute(
-                builder:(BuildContext context) => new AddData(),
-              )
-          ),
+//        floatingActionButton: new FloatingActionButton(
+//          child: new Icon(Icons.add,),
+//          onPressed: ()=>Navigator.of(context).push(
+//              new MaterialPageRoute(
+//                builder:(BuildContext context) => new AddData(),
+//              )
+//          ),
+//        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Color(0xFFF17532),
+          child: Icon(Icons.school),
         ),
-        body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [Color(0xFF0F95B7), Colors.white]
-              )
-          ),
-          child: new FutureBuilder<List>(
-            future: getData(),
-            builder: (context,snapshot){
-              if(snapshot.hasError) print (snapshot.error);
-              return snapshot.hasData
-                  ? new ItemList(list: snapshot.data,)
-                  : new Center(child: new CircularProgressIndicator(),);
-            },
-          ),
-        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomBar(Color(0xFFF17532),Color(0xFF545D68),Color(0xFF545D68),Color(0xFF545D68)),
+        body: Stack(
+            children: <Widget>[
+              Container(
+                child: new FutureBuilder<List>(
+                  future: getData(),
+                  builder: (context,snapshot){
+                    if(snapshot.hasError) print (snapshot.error);
+                    return snapshot.hasData
+                        ? new ItemList(list: snapshot.data,)
+                        : new Center(child: new CircularProgressIndicator(),);
+                  },
+                ),
+               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:<Widget>[
+                  Align(
+                    //alignment: Alignment.bottomCenter,
+                    alignment:Alignment(0,0.85),
+                    child: new RaisedButton(
+                        padding: const EdgeInsets.all(8.0),
+                        child: new Text("Add To List"),
+                        color: Color(0xFF0FB744),
+                        textColor: Colors.white,
+                        onPressed: (){
+                          Navigator.of(context).push(
+                              new MaterialPageRoute(
+                                builder:(BuildContext context) => new AddData(),
+                              ),
+                          );
+                        }
+                    )
+                ),
+               ]
+              ),
+
+          ]
+        )
+
     );
   }
 
@@ -96,7 +124,7 @@ class ItemList extends StatelessWidget{
       itemCount: list == null ? 0: list.length,
       itemBuilder: (context, i){
         return new Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(5.0),
           child: new GestureDetector(
             onTap: ()=>Navigator.of(context).push(
                 new MaterialPageRoute(
@@ -104,9 +132,13 @@ class ItemList extends StatelessWidget{
                 )
             ),
             child: new Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                side: BorderSide(color: Colors.blueAccent),
+              ),
               child: new ListTile(
                 title: new Text(list[i]['cname'],style: new TextStyle(color:Color(0xFF163B40),fontWeight:FontWeight.w500 )),
-                leading: new Icon(Icons.widgets,color: Colors.indigo,),
+                leading: new Icon(Icons.book,color: Colors.blue,),
                 subtitle: new Text("Field of Study :${list[i]['field']}"),
               ),
             ),

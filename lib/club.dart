@@ -51,78 +51,160 @@ class Club extends StatelessWidget {
         context: context,
         tiles: [
           // Divider( height: 0.02, color: Colors.blue,),
-          ExpansionTile(
-              leading:Image.asset('assets/club-interactive.jpg', height: 200,  width: 150,fit: BoxFit.fitWidth),
-              title: Text('Student Interactive Society',  style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Student Interactive Society'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-fcsc.jpg', height: 250,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('Faculty of Computing Student Society',  style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Faculty of Computing Student Society'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-fbsc.jpg', height:  200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('Faculty of Business Student Society',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Faculty of Computing Student Society'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-fesc.jpg', height: 200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('Faculty of Engineering Student Society',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Faculty of Engineering Student Society'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-gaming.jpg', height: 200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('SLIIT Gaming Community',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('SLIIT Gaming Community'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-sports.jpg', height: 200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('SLIIT Sportss Council',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('SLIIT Sportss Council'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-art.jpg', height: 200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('Art Circle',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Student Interactive Society'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-aiesec.jpg', height: 200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('SLIIT AIESEC',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Student Interactive Society'))
-              ]),
-          ExpansionTile(
-              leading: Image.asset('assets/club-leo.jpg', height: 200,  width: 150,   fit: BoxFit.fitWidth,),
-              title: Text('LEO Club',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
-              children: [
-                Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Student Interactive Society'))
-              ]),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child: ExpansionTile(
+                leading:Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Image.asset('assets/club-interactive.jpg', height: 500,  width: 90,fit: BoxFit.fitWidth),
+                ),
+                title: Text('Student Interactive Society',  style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Student Interactive Society'))
+                ]),
+          ),
+          Card(
+             shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:   ExpansionTile(
+                leading: Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child:Image.asset('assets/club-fcsc.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                ),
+                title: Text('Faculty of Computing Student Society',  style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Faculty of Computing Student Society'))
+                ]),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:ExpansionTile(
+                leading: Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child:Image.asset('assets/club-fbsc.jpg', height:  500,  width: 90,   fit: BoxFit.fitWidth,),
+                ),
+                title: Text('Faculty of Business Student Society',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Faculty of Computing Student Society'))
+                ]),
+          ),
+          Card(
+              shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:ExpansionTile(
+                leading: Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Image.asset('assets/club-fesc.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                ),
+                title: Text('Faculty of Engineering Student Society',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Faculty of Engineering Student Society'))
+                ]),
+          ),
+         Card(
+               shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(25.0),
+               side: BorderSide(color: Colors.blueAccent),
+             ),
+               child: ExpansionTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Image.asset('assets/club-gaming.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                  ),
+                  title: Text('SLIIT Gaming Community',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                  children: [
+                  Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text('SLIIT Gaming Community'))
+                  ]),
+
+          ),
+          Card(
+             shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:ExpansionTile(
+                leading: Padding(
+                 padding: const EdgeInsets.only(top: 15.0),
+                 child: Image.asset('assets/club-sports.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                ),
+                title: Text('SLIIT Sportss Council',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('SLIIT Sportss Council'))
+                ]),
+          ),
+          Card(
+              shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:ExpansionTile(
+                leading: Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Image.asset('assets/club-art.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                ),
+                title: Text('Art Circle',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Student Interactive Society'))
+                ]),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:ExpansionTile(
+                leading: Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Image.asset('assets/club-aiesec.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                ),
+                title: Text('SLIIT AIESEC',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Student Interactive Society'))
+                ]),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              side: BorderSide(color: Colors.blueAccent),
+            ),
+            child:ExpansionTile(
+                leading:Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Image.asset('assets/club-leo.jpg', height: 500,  width: 90,   fit: BoxFit.fitWidth,),
+                ) ,
+                title: Text('LEO Club',style: TextStyle(fontFamily: 'Scheherazade',color: Colors.blueGrey[800],fontWeight: FontWeight.bold,fontSize: 16)),
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text('Student Interactive Society'))
+                ]),
+          ),
         ],
       ).toList(),
     );

@@ -124,7 +124,7 @@ class _EditDataState extends State<EditData> {
                       controller: controllerLessons,
                       decoration: new InputDecoration(
                           hintText: "Lessons Count",
-                          labelText: "Stock"
+                          labelText: "Lessons Count"
                       ),
                     ),
                     new TextField(

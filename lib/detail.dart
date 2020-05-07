@@ -113,7 +113,7 @@ class _DetailState extends State<Detail> {
           padding: EdgeInsets.only(left: 10, right: 10),
           height: 350.0,
           child: Card(
-            color: Color(0xFF2E5F65 ).withOpacity(0.7),
+            color: Color(0xFF13376D  ).withOpacity(0.7),
             elevation: 10,
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
