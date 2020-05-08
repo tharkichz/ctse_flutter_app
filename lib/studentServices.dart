@@ -102,28 +102,28 @@ class Services extends StatelessWidget {
 
         break;
       case 1:
-        color = Colors.deepPurple;
+        color = Colors.white;
 
         break;
       case 2:
-        color = Colors.orange[300];
+        color = Colors.white;
         textData = 'Student Info Service';
         imgUrl ='assets/interFace12.jpg';
 
         break;
       case 3:
-        color = Colors.pinkAccent;
+        color = Colors.white;
         textData = 'Academic Info Service';
         imgUrl ='assets/interFace13.jpg';
         break;
       case 4:
-        color = Colors.teal[900];
+        color = Colors.white;
         textData = 'My Course List';
         imgUrl ='assets/interFace14.jpg';
         linkTo = new MyCourses();
         break;
       case 5:
-        color = Colors.green[600];
+        color = Colors.white;
         textData = 'Professional Courses';
         imgUrl ='assets/interFace15.jpg';
         linkTo = DesignCourseHomeScreen();
@@ -139,7 +139,7 @@ class Services extends StatelessWidget {
           color: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            side: BorderSide(color: Colors.white),
+            side: BorderSide(color: Colors.indigo),
           ),
           child: InkWell(
             onTap: () {
@@ -164,7 +164,7 @@ class Services extends StatelessWidget {
                       child:Center(
                         child: Text(
                           textData,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                         ),
                       )
                   )
