@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sliit_app/main.dart';
+import 'package:sliit_app/pro.dart';
 import 'package:sliit_app/profile_page.dart';
+
+import 'home.dart';
 
 class BottomBar extends StatelessWidget {
   final colorHome;

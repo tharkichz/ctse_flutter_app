@@ -1,58 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:sliit_app/profileedit.dart';
 import './editdata.dart';
 import 'package:http/http.dart' as http;
 import './myCourses.dart';
 import 'bottom_bar.dart';
 
-void main() => runApp(Detail());
+void main() => runApp(ProfDetail());
 
-class Detail extends StatefulWidget {
+class ProfDetail extends StatefulWidget {
 
   List list;
   int index;
 
-  Detail({this.index,this.list});
+  ProfDetail({this.index,this.list});
 
   @override
   _DetailState createState() => _DetailState();
 }
 
-class _DetailState extends State<Detail> {
+class _DetailState extends State<ProfDetail> {
 
   double screenHeight ;
 
   void deleteData(){
-    var url = "http://192.168.1.3:8020/sliit_app/deleteData.php";
+    var url = "http://192.168.1.3:8020/sliit_app/profile.php";
     http.post(url,body: {
-      'cid':widget.list[widget.index]['cid']
+      'student_number':widget.list[widget.index]['student_number']
     });
-  }
-
-  void confirm(){
-    AlertDialog alertDialog = new AlertDialog(
-      content: new Text("Are You Sure want to delete '${widget.list[widget.index]['cname']}'") ,
-      actions: <Widget>[
-        new RaisedButton(
-            child: new Text("OK",style: new TextStyle(color: Colors.white),),
-            color: Colors.redAccent,
-            onPressed:(){
-              deleteData();
-              Navigator.of(context).push(
-                  new MaterialPageRoute(
-                      builder: (BuildContext context) => new MyCourses()
-                  )
-              );//To redirect to the main page-list
-            }
-        ),
-        new RaisedButton(
-          child: new Text("Cancel",style: new TextStyle(color: Colors.white),),
-          color: Colors.lightGreen,
-          onPressed:()=> Navigator.pop(context),
-        )
-      ],
-    );
-
-    showDialog(context: context,child: alertDialog);
   }
 
   @override
@@ -61,9 +35,10 @@ class _DetailState extends State<Detail> {
     screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+     backgroundColor: Color.fromRGBO(133, 120, 255, 1),
       appBar: new AppBar(
 
-        backgroundColor: Colors.blue,
+        backgroundColor: Color.fromRGBO(133, 120, 255, 1),
         elevation: 6.0,
         centerTitle: true,
         leading: new IconButton(
@@ -97,11 +72,11 @@ class _DetailState extends State<Detail> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Color(0xFFF17532),
+        backgroundColor: Colors.orange[400],
         child: Icon(Icons.school),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomBar(Color(0xFFF17532),Color(0xFF545D68),Color(0xFF545D68),Color(0xFF545D68)),
+      bottomNavigationBar: BottomBar(Color(0xFF545D68),Colors.orange[400],Color(0xFF545D68),Color(0xFF545D68)),
     );
   }
 
@@ -113,14 +88,14 @@ class _DetailState extends State<Detail> {
           padding: EdgeInsets.only(left: 10, right: 10),
           height: 350.0,
           child: Card(
-            color: Color(0xFF2E5F65 ).withOpacity(0.7),
+            color:Color.fromRGBO(133, 120, 255, 1).withOpacity(0.7),
             elevation: 10,
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 new Padding(padding: const EdgeInsets.only(top:30.0),),
                 Center(
-                  child: new Text(widget.list[widget.index]['cname'],style: new TextStyle(fontSize: 20.0,fontWeight:FontWeight.w600, color: Colors.white, ),),
+                  child: new Text("Profile Details",style: new TextStyle(fontSize: 28.0,fontWeight:FontWeight.w600, color: Colors.white, ),),
                 ),
                 new Padding(padding: const EdgeInsets.only(top:30.0),),
                 Row(
@@ -128,7 +103,7 @@ class _DetailState extends State<Detail> {
                       new Text('   '),
                       new Icon(Icons.open_with,color: Colors.white,size: 10,),
                       new Text('   '),
-                      new Text("Course Code :  ${widget.list[widget.index]['code']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
+                      new Text("Fisrt Name : ${widget.list[widget.index]['first_name']}",style: new TextStyle(fontSize: 18.0, color:Colors.white),),
                     ]
                 ),
                 Row(
@@ -136,7 +111,7 @@ class _DetailState extends State<Detail> {
                       new Text('   '),
                       new Icon(Icons.open_with,color: Colors.white,size: 10,),
                       new Text('   '),
-                      new Text("Field of Study : ${widget.list[widget.index]['field']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
+                      new Text("Student Number : ${widget.list[widget.index]['student_number']}",style: new TextStyle(fontSize: 18.0, color:Colors.white),),
                     ]
                 ),
                 Row(
@@ -144,7 +119,7 @@ class _DetailState extends State<Detail> {
                       new Text('   '),
                       new Icon(Icons.open_with,color: Colors.white,size: 10,),
                       new Text('   '),
-                      new Text("Total Lessons Count : ${widget.list[widget.index]['lessons']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
+                      new Text("Faculty : ${widget.list[widget.index]['faculty']}",style: new TextStyle(fontSize: 18.0, color:Colors.white),),
                     ]
                 ),
                 Row(
@@ -152,31 +127,15 @@ class _DetailState extends State<Detail> {
                       new Text('   '),
                       new Icon(Icons.open_with,color: Colors.white,size: 10,),
                       new Text('   '),
-                      new Text("Duration : ${widget.list[widget.index]['duration']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
+                      new Text("Year : ${widget.list[widget.index]['year']}",style: new TextStyle(fontSize: 18.0, color:Colors.white),),
                     ]
                 ),
-                Row(
+                 Row(
                     children: <Widget>[
                       new Text('   '),
                       new Icon(Icons.open_with,color: Colors.white,size: 10,),
                       new Text('   '),
-                      new Text("Instructor : ${widget.list[widget.index]['instructor']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
-                    ]
-                ),
-                Row(
-                    children: <Widget>[
-                      new Text('   '),
-                      new Icon(Icons.open_with,color: Colors.white,size: 10,),
-                      new Text('   '),
-                      new Text("Completed Lessons Count : ${widget.list[widget.index]['completed']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
-                    ]
-                ),
-                Row(
-                    children: <Widget>[
-                      new Text('   '),
-                      new Icon(Icons.open_with,color: Colors.white,size: 10,),
-                      new Text('   '),
-                      new Text("Status: ${widget.list[widget.index]['status']}",style: new TextStyle(fontSize: 15.0, color:Colors.white),),
+                      new Text("Password : ${widget.list[widget.index]['password']}",style: new TextStyle(fontSize: 18.0, color:Colors.white),),
                     ]
                 ),
                 new Padding(padding: const EdgeInsets.only(top:30.0),),
@@ -185,8 +144,9 @@ class _DetailState extends State<Detail> {
                   children: <Widget>[
                     new Text('       '),
                     new RaisedButton(
-                      child: new Text("Update"),
-                      color: Color(0xFF369C3A),
+                      child: new Text("Update",style: new TextStyle( fontWeight: FontWeight.bold,fontSize: 18.0),),
+                      color: Colors.orange[700],
+
                       padding: EdgeInsets.only(
                           left: 38, right: 38, top: 15, bottom: 15
                       ),
@@ -196,22 +156,9 @@ class _DetailState extends State<Detail> {
                       textColor: Colors.white,
                       onPressed:()=>Navigator.of(context).push(
                           new MaterialPageRoute(
-                            builder: (BuildContext context) => new EditData(list: widget.list,index: widget.index,),
+                            builder: (BuildContext context) => new ProfileEdit(list: widget.list,index: widget.index,),
                           )
                       ),
-                    ),
-                    new Text('   '),
-                    new RaisedButton(
-                      child: new Text("Un-Enrol"),
-                      color: Color(0xFFEE1C3F) ,
-                      padding: EdgeInsets.only(
-                          left: 38, right: 38, top: 15, bottom: 15
-                      ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)
-                      ),
-                      textColor: Colors.white,
-                      onPressed:()=>confirm() ,
                     ),
                   ],
                 ),
@@ -225,9 +172,9 @@ class _DetailState extends State<Detail> {
 
   Widget upperHalf(BuildContext context) {
     return Container(
-      height: screenHeight / 2,
+      height: screenHeight / 4,
       child: Image.asset(
-        'assets/interFace16.jpg',
+        'assets/sliit2.jpg',
         fit: BoxFit.fill,
       ),
     );
@@ -238,7 +185,7 @@ class _DetailState extends State<Detail> {
       alignment: Alignment.bottomCenter,
       child: Container(
         height: screenHeight / 2,
-        color: Color(0xFFECF0F3),
+        color: Color.fromRGBO(133, 120, 255, 1),
       ),
     );
   }

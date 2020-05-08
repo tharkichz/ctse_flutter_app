@@ -28,7 +28,7 @@ class _EditDataState extends State<EditData> {
   TextEditingController controllerStatus ;
 
   void editData(){
-    var url = "http://10.0.2.2:8020/sliit_app/editdata.php";
+    var url = "http://192.168.1.3:8020/sliit_app/editdata.php";
     http.post(url,body: {
       "cid": widget.list[widget.index]['cid'],
       "code": controllerCode.text,
@@ -178,11 +178,11 @@ class _EditDataState extends State<EditData> {
       ) ,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Color(0xFFF17532),
+        backgroundColor: Colors.orange[400],
         child: Icon(Icons.school),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomBar(Color(0xFFF17532),Color(0xFF545D68),Color(0xFF545D68),Color(0xFF545D68)),
+      bottomNavigationBar: BottomBar(Color(0xFF545D68),Colors.orange[400],Color(0xFF545D68),Color(0xFF545D68)),
     );
   }
 }

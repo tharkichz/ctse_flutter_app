@@ -1,12 +1,15 @@
+//import 'dart:html';
+import 'events.dart';
 import 'package:flutter/material.dart';
 import 'card_detail.dart';
+import 'news.dart';
 
 
 class CardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromRGBO(133, 120, 255, 1),
       body: ListView(
         children: <Widget>[
           SizedBox(height: 15.0),
@@ -23,7 +26,7 @@ class CardPage extends StatelessWidget {
                 children: <Widget>[
                   _buildCard('News',  'assets/d.png',
                       false, false, context),
-                  _buildCard('Events', 'assets/b.png',
+                  _buildCard2('Events', 'assets/b.png',
                       true, false, context),
                   _buildCard('Clubs',
                       'assets/c.png', false, true, context),
@@ -44,7 +47,72 @@ class CardPage extends StatelessWidget {
         child: InkWell(
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => CardDetail(
+                  MaterialPageRoute(builder: (context) => News(
+                    assetPath: imgPath,
+                    cardname: name
+                  )));
+            },
+            child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 3.0,
+                          blurRadius: 5.0)
+                    ],
+                    color: Colors.white),
+                child: Column(children: [
+                  Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                          ])),
+                  Hero(
+                      tag: imgPath,
+                      child: Container(
+                          height: 100.0,
+                          width: 200.0,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(imgPath),
+                                  fit: BoxFit.contain)))),
+                                  
+                  Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Container(color: Color(0xFFEBEBEB), height: 1.0)),
+                  Padding(
+                      padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                              SizedBox(height: 10.0),
+                                Center(
+                                  child: Text(name,
+                                      style: TextStyle(
+                                          color: Colors.black87,
+                                          fontFamily: 'Varela',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 17.0)),
+                                ),
+                                IconButton(
+                                    icon: Icon(Icons.arrow_forward, color: Color(0xFF545D68)),
+                                    onPressed: () {},
+                                ),
+                        
+                          ]))
+                ]))));
+  }
+
+   Widget _buildCard2(String name, String imgPath, bool added,
+      bool isFavorite, context) {
+    return Padding(
+        padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
+        child: InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Events(
                     assetPath: imgPath,
                     cardname: name
                   )));

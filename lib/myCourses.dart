@@ -22,7 +22,7 @@ class MyCourses extends StatefulWidget{
 class _HomeState extends State<MyCourses>{
 
   Future<List> getData() async{
-    final response = await http.get("http://10.0.2.2:8020/sliit_app/getdata.php");
+    final response = await http.get("http://192.168.1.3:8020/sliit_app/getdata.php");
     return json.decode(response.body);
   }
 

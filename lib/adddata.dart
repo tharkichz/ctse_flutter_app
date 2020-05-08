@@ -21,7 +21,7 @@ class _AddDataState extends State<AddData> {
   TextEditingController controllerStatus = new TextEditingController();
 
   void addData(){
-    var url = "http://10.0.2.2:8020/sliit_app/adddata.php";
+    var url = "http:/192.168.1.3:8020/sliit_app/adddata.php";
     http.post(url,body:{
       "code" : controllerCode.text,
       "cname": controllerName.text,

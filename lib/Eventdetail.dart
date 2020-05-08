@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'bottom_bar.dart';
 
-class CardDetail extends StatelessWidget {
+class EventDetail extends StatelessWidget {
   final assetPath, cardname, dis2,d12,d22;
 
-  CardDetail({this.assetPath, this.cardname, this.dis2, this.d12, this.d22});
+  EventDetail({this.assetPath, this.cardname, this.dis2, this.d12, this.d22});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class CardDetail extends StatelessWidget {
         ],
       ),
       body: ListView(children: [
-        SizedBox(height: 15.0),
+        SizedBox(height: 20.0),
         Padding(
           padding: EdgeInsets.only(left: 20.0),
         ),
@@ -44,15 +44,18 @@ class CardDetail extends StatelessWidget {
                 height: 160.0, width: 100.0, fit: BoxFit.contain)),
         SizedBox(height: 20.0),
         SizedBox(height: 10.0),
-        Center(
-          child: Text(cardname,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Varela',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 28.0)),
-        ),
-        SizedBox(height: 20.0),
+    
+          Padding(
+            padding: const EdgeInsets.only(left:20.0),
+            child: Text(cardname,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Varela',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28.0)),
+          ),
+  
+        SizedBox(height: 30.0),
         Center(
           child: Container(
             width: MediaQuery.of(context).size.width - 50.0,
@@ -65,86 +68,7 @@ class CardDetail extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20.0),
-        Padding(
-            padding: EdgeInsets.only(left: 50.0, right: 10.0, top: 10.0),
-          
-              child: Row(
-              //  width: MediaQuery.of(context).size.width - 0.0,
-                children: [ Text(" Degree Programmes",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'Varela',
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87)),
-                         IconButton(
-                                icon: Icon(Icons.fast_forward,
-                                    color: Color(0xFF545D68)),
-                                onPressed: () {},
-                              )]
-              ),
-             
-            ),
-
-        Padding(
-            padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                width: MediaQuery.of(context).size.width - 0.0,
-                child: Text(d12,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'Varela',
-                        fontSize: 18.0,
-                        color: Colors.black87)),
-              ),
-            )),
-            
-
-        Padding(
-            padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                width: MediaQuery.of(context).size.width - 0.0,
-                child: Text(d22,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'Varela',
-                        fontSize: 18.0,
-                        color: Colors.black87)),
-
-              ),
-            )),
-
-SizedBox(height: 20.0),
-        Padding(
-            padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 18.0),
-            child: InkWell(
-                onTap: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                        padding: EdgeInsets.only(left: 5.0),
-                        width: MediaQuery.of(context).size.width - 30.0,
-                        height: MediaQuery.of(context).size.height - 50.0,
-                        child: GridView.count(
-                          crossAxisCount: 3,
-                          primary: false,
-                          crossAxisSpacing: 8.0,
-                          mainAxisSpacing: 25.0,
-                          childAspectRatio: 0.8,
-                          children: <Widget>[
-                            _card2('20 Years', 'of Existence', 'assets/s1.png'),
-                            _card2('5000 Years ', 'of Experience',
-                                'assets/s2.png'),
-                            _card2('300+', 'Faculty Members', 'assets/s3.png'),
-                          ],
-                        ))
-                  ],
-                )))
+       
       ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
